@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, ChefHat, Phone, MapPin } from 'lucide-react';
+import { ChefHat, Phone, MapPin } from 'lucide-react';
 import { RESTAURANT_DATA } from '../constants';
 
 // Social Icons as components for cleaner JSX
@@ -54,13 +54,20 @@ export const Header: React.FC = () => {
 
         {/* Logo and Title Group */}
         <div className="flex flex-col items-center">
-          <div className="w-16 h-16 bg-mangle-navy rounded-full flex items-center justify-center mb-3 shadow-lg ring-4 ring-mangle-green/20">
-            <Anchor className="text-white w-8 h-8" />
+          <div className="w-24 h-24 mb-2 transition-transform hover:scale-105 duration-300">
+            <img
+              src="/logo.png"
+              alt="Puerto Mangle Logo"
+              className="w-full h-full object-contain drop-shadow-md"
+            />
           </div>
-          <h1 className="font-oswald font-bold text-3xl uppercase tracking-tight text-mangle-navy mb-1">
-            {RESTAURANT_DATA.restaurante}
+          <h1 className="font-oswald font-bold text-4xl uppercase tracking-tight mb-0 heading-shadow">
+            <span className="text-mangle-navy">Puerto</span> <span className="text-mangle-green">Mangle</span>
           </h1>
-          <p className="font-montserrat text-mangle-green font-medium text-sm tracking-widest uppercase">
+          <h2 className="font-oswald text-xl text-gray-600 tracking-[0.3em] uppercase mb-1 font-semibold">
+            Cevicheria
+          </h2>
+          <p className="font-montserrat text-gray-400 font-medium text-xs tracking-[0.2em] uppercase">
             {RESTAURANT_DATA.eslogan}
           </p>
         </div>
