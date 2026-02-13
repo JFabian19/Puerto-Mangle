@@ -4,7 +4,7 @@ import { CreditCard, Smartphone, CheckCheck, Copy } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     const [copied, setCopied] = useState(false);
-    const phoneNumber = "999999999";
+    const phoneNumber = "938423014";
 
     const handleCopy = () => {
         navigator.clipboard.writeText(phoneNumber);

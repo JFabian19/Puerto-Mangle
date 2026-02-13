@@ -21,10 +21,26 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ category, index, id })
         </h2>
       </div>
 
-      {/* Representative Image Placeholder */}
-      <div className="-mx-4 mb-6 aspect-[21/9] bg-gray-200 flex items-center justify-center">
-        <span className="text-gray-500 font-medium">Acá va la imagen</span>
-      </div>
+      {/* Representative Image Placeholder or Actual Image */}
+      {/* Representative Image Placeholder or Actual Image */}
+      {category.imagen ? (
+        <div className="mb-6 aspect-[3/2] overflow-hidden relative rounded-xl shadow-lg border-4 border-white ring-1 ring-gray-100">
+          <img
+            src={category.imagen}
+            alt={category.categoria}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              // potentially show placeholder fallback here if needed
+            }}
+          />
+        </div>
+      ) : (
+        <div className="mb-6 aspect-[3/2] bg-gray-200 flex items-center justify-center rounded-xl shadow-lg border-4 border-white ring-1 ring-gray-100">
+          <span className="text-gray-500 font-medium text-center px-4">Acá va la imagen de<br />{category.categoria}</span>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {category.items.map((item, idx) => (
