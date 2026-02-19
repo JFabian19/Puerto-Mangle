@@ -103,15 +103,7 @@ export const Header: React.FC = () => {
             >
               <InstagramIcon className="w-5 h-5" />
             </a>
-            <a
-              href="https://wa.me/51945211547"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2.5 bg-green-500 text-white rounded-full hover:bg-green-600 hover:scale-110 transition-all shadow-md active:scale-95"
-              aria-label="WhatsApp"
-            >
-              <WhatsAppIcon className="w-5 h-5" />
-            </a>
+
             <a
               href="tel:945211547"
               className="p-2.5 bg-mangle-navy text-white rounded-full hover:bg-mangle-navy/90 hover:scale-110 transition-all shadow-md active:scale-95"
@@ -131,6 +123,26 @@ export const Header: React.FC = () => {
             <MapPin className="w-4 h-4 flex-shrink-0 text-mangle-green group-hover:scale-110 transition-transform" />
             <span className="underline decoration-dotted underline-offset-2">Jr. El sol 149 San Roque Surco</span>
           </a>
+
+          {/* Delivery Section */}
+          <div className="flex flex-col items-center mt-4">
+            <a
+              href="https://wa.me/51902897044?text=%C2%A1Hola!%20Quisiera%20hacer%20un%20pedido%20%F0%9F%90%9F%F0%9F%8D%8B"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2.5 bg-[#25D366] text-white rounded-full hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-md active:scale-95 flex items-center justify-center gap-3 group"
+              aria-label="Pedir por WhatsApp"
+            >
+              <img
+                src="/wsp.png"
+                alt="WhatsApp"
+                className="w-5 h-5 object-contain"
+              />
+              <span className="font-oswald font-bold uppercase tracking-widest text-sm">
+                Delivery
+              </span>
+            </a>
+          </div>
 
         </div>
 

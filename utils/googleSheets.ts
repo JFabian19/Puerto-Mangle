@@ -131,7 +131,7 @@ export const fetchRestaurantData = async (): Promise<RestaurantData> => {
                 nombre: p.nombre || 'Sin nombre',
                 descripcion: p.descripcion || '',
                 precio: parseFloat(p.precio) || 0,
-                imagen: p.imagen || undefined
+                imagen: p.imagen || p.imagen_url || undefined
             }));
 
             return {

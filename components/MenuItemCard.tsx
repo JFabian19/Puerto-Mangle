@@ -11,19 +11,29 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
   return (
     <article className="group bg-white rounded-lg shadow-sm border border-gray-200 p-6 flex flex-col justify-between transition-all hover:shadow-md hover:border-mangle-green/50 min-h-[160px]">
       <div>
-        {item.imagen && (
-          <div className="mb-4 rounded-lg overflow-hidden h-40 w-full relative">
+        <div className="mb-4 rounded-lg overflow-hidden w-full aspect-[3/2] relative bg-gray-100">
+          {item.imagen ? (
             <img
               src={item.imagen}
               alt={item.nombre}
               className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-110"
               loading="lazy"
               onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none'; // Hide if broken
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement?.classList.add('flex', 'items-center', 'justify-center');
+                const span = document.createElement('span');
+                span.className = 'text-gray-400 font-oswald text-sm';
+                span.innerText = 'Acá va imagen';
+                e.currentTarget.parentElement?.appendChild(span);
               }}
             />
-          </div>
-        )}
+          ) : (
+            <div className="w-full h-full flex items-center justify-center border-2 border-dashed border-gray-300">
+              <span className="text-gray-400 font-oswald text-sm uppercase tracking-wider">Acá va imagen</span>
+            </div>
+          )}
+        </div>
+
         <div className="flex justify-between items-start gap-4 mb-2">
           <h3 className="font-oswald font-bold text-mangle-navy text-xl leading-snug">
             {item.nombre}

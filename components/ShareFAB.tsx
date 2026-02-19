@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Share2 } from 'lucide-react';
+import { Share2, MessageCircle } from 'lucide-react';
 
 export const ShareFAB: React.FC = () => {
     const handleShare = async () => {
@@ -27,17 +26,40 @@ export const ShareFAB: React.FC = () => {
         }
     };
 
+    const handleWhatsApp = () => {
+        const phoneNumber = "51902897044";
+        const message = encodeURIComponent("¡Hola! Quisiera hacer un pedido 🐟🍋");
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    };
+
     return (
-        <button
-            onClick={handleShare}
-            className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50 bg-mangle-green text-mangle-navy p-3 rounded-l-xl shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:pl-5 hover:bg-mangle-green/90 transition-all duration-300 flex flex-col items-center justify-center gap-1 group border-l-2 border-y-2 border-white/20"
-            aria-label="Compartir carta digital"
-            title="Compartir Carta Digital"
-        >
-            <Share2 className="w-6 h-6 drop-shadow-sm" />
-            <span className="hidden md:block font-oswald font-bold text-[10px] uppercase tracking-wider text-mangle-navy/80">
-                Compartir
-            </span>
-        </button>
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+            {/* Share Button */}
+            <button
+                onClick={handleShare}
+                className="bg-mangle-green text-mangle-navy p-3 rounded-full shadow-lg hover:bg-mangle-green/90 transition-all duration-300 flex items-center justify-center group relative w-12 h-12 hover:w-auto hover:px-4 overflow-hidden"
+                aria-label="Compartir carta digital"
+                title="Compartir Carta Digital"
+            >
+                <Share2 className="w-6 h-6 shrink-0" />
+                <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ml-0 group-hover:ml-2 whitespace-nowrap font-oswald font-bold text-sm uppercase">
+                    Compartir
+                </span>
+            </button>
+
+            {/* WhatsApp Button */}
+            <button
+                onClick={handleWhatsApp}
+                className="w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center animate-bounce z-50 bg-transparent border-none p-0"
+                aria-label="Contactar por WhatsApp"
+                title="Contactar por WhatsApp"
+            >
+                <img
+                    src="/whatsapp logo.png"
+                    alt="WhatsApp"
+                    className="w-full h-full object-contain drop-shadow-md"
+                />
+            </button>
+        </div>
     );
 };

@@ -4,7 +4,7 @@ import { CreditCard, Smartphone, CheckCheck, Copy } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     const [copied, setCopied] = useState(false);
-    const phoneNumber = "938423014";
+    const phoneNumber = "902897044";
 
     const handleCopy = () => {
         navigator.clipboard.writeText(phoneNumber);
@@ -27,17 +27,23 @@ export const Footer: React.FC = () => {
                         <span className="font-oswald text-sm font-bold tracking-wider">VISA</span>
                     </div>
                     <div className="bg-white/5 rounded-lg p-3 flex flex-col items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
-                        <CreditCard className="w-6 h-6 mb-1 text-red-400" />
+                        <CreditCard className="w-6 h-6 mb-1 text-red-500" />
                         <span className="font-oswald text-sm font-bold tracking-wider">MASTERCARD</span>
                     </div>
                     {/* Wallets */}
-                    <div className="bg-purple-900/30 rounded-lg p-3 flex flex-col items-center justify-center border border-purple-500/30 hover:bg-purple-900/40 transition-colors">
-                        <Smartphone className="w-6 h-6 mb-1 text-purple-400" />
-                        <span className="font-oswald text-sm font-bold tracking-wider text-purple-200">YAPE</span>
+                    <div className="bg-white/5 rounded-lg p-2 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
+                        <img
+                            src="/yape.png"
+                            alt="Yape"
+                            className="h-12 object-contain"
+                        />
                     </div>
-                    <div className="bg-cyan-900/30 rounded-lg p-3 flex flex-col items-center justify-center border border-cyan-500/30 hover:bg-cyan-900/40 transition-colors">
-                        <Smartphone className="w-6 h-6 mb-1 text-cyan-400" />
-                        <span className="font-oswald text-sm font-bold tracking-wider text-cyan-200">PLIN</span>
+                    <div className="bg-white/5 rounded-lg p-2 flex items-center justify-center border border-white/10 hover:bg-white/10 transition-colors">
+                        <img
+                            src="/plin.png"
+                            alt="Plin"
+                            className="h-12 object-contain"
+                        />
                     </div>
                 </div>
 
@@ -67,9 +73,17 @@ export const Footer: React.FC = () => {
             <h2 className="font-oswald text-2xl font-bold mb-2">{RESTAURANT_DATA.restaurante}</h2>
             <p className="font-montserrat text-mangle-green text-sm mb-6">{RESTAURANT_DATA.eslogan}</p>
 
-            <p className="font-montserrat text-xs text-white/30">
+            <p className="font-montserrat text-xs text-white/30 mb-2">
                 © {new Date().getFullYear()} Puerto Mangle. Todos los derechos reservados.
             </p>
+            <a
+                href="https://tymasolutions.lat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-montserrat text-xs inline-block hover:scale-105 transition-transform"
+            >
+                Hecho por <span className="text-cyan-400 font-bold">Tyma</span><span className="text-white font-bold">Solutions</span>
+            </a>
         </footer>
     );
 };
