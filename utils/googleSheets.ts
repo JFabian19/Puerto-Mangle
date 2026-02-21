@@ -117,14 +117,13 @@ export const fetchRestaurantData = async (): Promise<RestaurantData> => {
         });
 
         const menu: MenuCategory[] = sortedCategories.map((cat: any) => {
-            // Flexible matching for ID
-            const catId = cat.id;
+            // Match by category name
+            const catName = (cat.nombre || '').trim().toLowerCase();
 
-            // Filter items
+            // Filter items by category name
             const catItems = platesRaw.filter((p: any) => {
-                // Try to match exact string or number
-                return p.categoria_id === catId ||
-                    String(p.categoria_id) === String(catId);
+                const plateCat = (p.categoria || '').trim().toLowerCase();
+                return plateCat === catName;
             });
 
             const items: MenuItem[] = catItems.map((p: any) => ({
