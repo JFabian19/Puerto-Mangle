@@ -16,7 +16,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
             <img
               src={item.imagen}
               alt={item.nombre}
-              className="object-cover w-full h-full transform transition-transform duration-500 hover:scale-110"
+              className="object-contain w-full h-full transform transition-transform duration-500 hover:scale-110"
               loading="lazy"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
