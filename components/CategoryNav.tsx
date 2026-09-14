@@ -31,8 +31,8 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ categories, activeCate
   }, [activeCategory]);
 
   return (
-    <nav className="sticky top-0 z-20 bg-white/95 backdrop-blur shadow-md border-b border-gray-100">
-      <div className="flex overflow-x-auto py-3 px-2 no-scrollbar snap-x">
+    <nav className="sticky top-0 z-20 border-b border-cyan-950/10 bg-white/90 shadow-[0_8px_25px_rgba(0,40,85,0.08)] backdrop-blur-xl">
+      <div className="no-scrollbar flex snap-x overflow-x-auto px-2 py-3">
         {categories.map((cat, index) => {
           const isActive = activeCategory === cat.categoria;
           return (
@@ -50,8 +50,8 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ categories, activeCate
               className={`
                         flex-shrink-0 px-4 py-2 mx-1 text-sm font-oswald font-bold uppercase tracking-wide rounded-full transition-all duration-300 snap-center
                         ${isActive
-                  ? 'bg-mangle-navy text-mangle-green shadow-lg ring-2 ring-mangle-green/50 scale-105'
-                  : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}
+                  ? 'scale-105 bg-[#002855] text-cyan-300 shadow-lg ring-2 ring-cyan-300/30'
+                  : 'bg-slate-100 text-slate-500 hover:bg-cyan-50 hover:text-[#002855]'}
                     `}
             >
               {cat.categoria}

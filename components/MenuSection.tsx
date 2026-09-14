@@ -7,16 +7,17 @@ interface MenuSectionProps {
   category: MenuCategory;
   index: number;
   id: string;
+  onAddToCart: (item: MenuCategory['items'][number], category: string, itemIndex: number) => void;
 }
 
-export const MenuSection: React.FC<MenuSectionProps> = ({ category, index, id }) => {
+export const MenuSection: React.FC<MenuSectionProps> = ({ category, index, id, onAddToCart }) => {
   return (
-    <section id={id} className="scroll-mt-36 mb-12 px-4 relative z-10">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="bg-mangle-green p-2 rounded-lg shadow-sm">
-          <Utensils className="text-mangle-navy w-5 h-5" />
+    <section id={id} className="relative z-10 mb-14 scroll-mt-36 px-4">
+      <div className="mb-6 flex items-center gap-3">
+        <div className="rounded-xl bg-[#002855] p-2.5 shadow-lg shadow-blue-950/15">
+          <Utensils className="h-5 w-5 text-cyan-300" />
         </div>
-        <h2 className="font-oswald font-bold text-2xl text-mangle-navy uppercase tracking-wide border-b-2 border-mangle-green/50 pb-1 flex-grow">
+        <h2 className="flex-grow border-b border-[#002855]/10 pb-2 font-oswald text-2xl font-bold uppercase tracking-wide text-[#002855]">
           {category.categoria}
         </h2>
       </div>
@@ -30,6 +31,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ category, index, id })
             item={item}
             categoryId={index}
             itemId={idx}
+            onAdd={() => onAddToCart(item, category.categoria, idx)}
           />
         ))}
       </div>

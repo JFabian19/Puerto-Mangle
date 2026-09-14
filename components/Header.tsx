@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChefHat, Phone, MapPin } from 'lucide-react';
+import { ChefHat, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { RESTAURANT_DATA } from '../constants';
 
 // Social Icons as components for cleaner JSX
@@ -49,8 +49,9 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 
 export const Header: React.FC = () => {
   return (
-    <header className="relative z-10 bg-white/80 backdrop-blur-md shadow-sm border-b-2 border-mangle-green/30 pt-8 pb-6 px-4 text-center">
-      <div className="flex flex-col items-center justify-center space-y-4">
+    <header className="relative z-10 overflow-hidden border-b border-cyan-300/20 bg-[#002855] px-4 pb-9 pt-8 text-center text-white shadow-xl">
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 18% 20%, #00d4e8 0, transparent 24%), radial-gradient(circle at 82% 0%, #8ed9a2 0, transparent 22%)' }} />
+      <div className="relative flex flex-col items-center justify-center space-y-4">
 
         {/* Logo and Title Group */}
         <div className="flex flex-col items-center">
@@ -61,21 +62,21 @@ export const Header: React.FC = () => {
               className="w-full h-full object-contain drop-shadow-md"
             />
           </div>
-          <h1 className="font-oswald font-bold text-4xl uppercase tracking-tight mb-0 heading-shadow">
-            <span className="text-mangle-navy">Puerto</span> <span className="text-mangle-green">Mangle</span>
+          <h1 className="mb-0 font-oswald text-4xl font-bold uppercase tracking-tight drop-shadow-lg">
+            <span className="text-white">Puerto</span> <span className="text-cyan-300">Mangle</span>
           </h1>
-          <h2 className="font-oswald text-xl text-gray-600 tracking-[0.3em] uppercase mb-1 font-semibold">
+          <h2 className="mb-1 font-oswald text-xl font-semibold uppercase tracking-[0.3em] text-white/80">
             Cevicheria
           </h2>
-          <p className="font-montserrat text-gray-400 font-medium text-xs tracking-[0.2em] uppercase">
+          <p className="font-montserrat text-xs font-medium uppercase tracking-[0.2em] text-cyan-100/70">
             {RESTAURANT_DATA.eslogan}
           </p>
         </div>
 
         {/* Chef Info */}
-        <div className="flex items-center space-x-2 bg-mangle-bg px-4 py-1.5 rounded-full border border-mangle-navy/10">
-          <ChefHat className="w-4 h-4 text-mangle-navy opacity-70" />
-          <span className="font-montserrat text-xs font-semibold text-mangle-navy/70">
+        <div className="flex items-center space-x-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 backdrop-blur">
+          <ChefHat className="h-4 w-4 text-cyan-300" />
+          <span className="font-montserrat text-xs font-semibold text-white/80">
             Chef: {RESTAURANT_DATA.cheff}
           </span>
         </div>
@@ -106,7 +107,7 @@ export const Header: React.FC = () => {
 
             <a
               href="tel:945211547"
-              className="p-2.5 bg-mangle-navy text-white rounded-full hover:bg-mangle-navy/90 hover:scale-110 transition-all shadow-md active:scale-95"
+              className="rounded-full bg-white/15 p-2.5 text-white shadow-md transition-all hover:scale-110 hover:bg-white/25 active:scale-95"
               aria-label="Llamar"
             >
               <Phone className="w-5 h-5" />
@@ -118,9 +119,9 @@ export const Header: React.FC = () => {
             href="https://www.google.com/maps/place/puerto+mangle/@-12.1473722,-76.9910346,13z/data=!4m6!3m5!1s0x9105b70c2bed409d:0x25d6d2dd8c06813c!8m2!3d-12.1473722!4d-76.9910346!16s%2Fg%2F1v62jqkg?entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 text-xs font-montserrat text-mangle-navy/80 hover:text-mangle-navy transition-colors text-center max-w-[280px] leading-tight mt-1"
+            className="group mt-1 flex max-w-[280px] items-center gap-2 text-center font-montserrat text-xs leading-tight text-white/75 transition-colors hover:text-white"
           >
-            <MapPin className="w-4 h-4 flex-shrink-0 text-mangle-green group-hover:scale-110 transition-transform" />
+            <MapPin className="h-4 w-4 flex-shrink-0 text-cyan-300 transition-transform group-hover:scale-110" />
             <span className="underline decoration-dotted underline-offset-2">Jr. El sol 149 San Roque Surco</span>
           </a>
 
@@ -130,7 +131,7 @@ export const Header: React.FC = () => {
               href="https://wa.me/51902897044?text=%C2%A1Hola!%20Quisiera%20hacer%20un%20pedido%20%F0%9F%90%9F%F0%9F%8D%8B"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-[#25D366] text-white rounded-full hover:bg-[#20bd5a] hover:scale-105 transition-all shadow-md active:scale-95 flex items-center justify-center gap-3 group"
+              className="group flex items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-white shadow-lg shadow-green-950/40 transition-all hover:scale-105 hover:bg-[#20bd5a] active:scale-95"
               aria-label="Pedir por WhatsApp"
             >
               <img
@@ -138,8 +139,8 @@ export const Header: React.FC = () => {
                 alt="WhatsApp"
                 className="w-5 h-5 object-contain"
               />
-              <span className="font-oswald font-bold uppercase tracking-widest text-sm">
-                Delivery
+              <span className="font-oswald text-sm font-bold uppercase tracking-widest">
+                Pide por WhatsApp
               </span>
             </a>
           </div>

@@ -5,6 +5,11 @@ export interface MenuItem {
   imagen?: string;
 }
 
+export interface CartItem extends MenuItem {
+  cartId: string;
+  quantity: number;
+}
+
 export interface MenuCategory {
   categoria: string;
   items: MenuItem[];
