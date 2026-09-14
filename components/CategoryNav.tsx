@@ -9,6 +9,7 @@ interface CategoryNavProps {
 
 export const CategoryNav: React.FC<CategoryNavProps> = ({ categories, activeCategory, onSelectCategory }) => {
   const itemsRef = useRef<Map<string, HTMLButtonElement | null>>(new Map());
+  const navScrollRef = useRef<HTMLDivElement | null>(null);
 
   // Function to capture refs
   const getMap = () => {
@@ -21,18 +22,16 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({ categories, activeCate
   useEffect(() => {
     const map = getMap();
     const node = map.get(activeCategory);
-    if (node) {
-      node.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
+    const container = navScrollRef.current;
+    if (node && container) {
+      const targetLeft = node.offsetLeft - (container.clientWidth - node.offsetWidth) / 2;
+      container.scrollTo({ left: targetLeft, behavior: 'smooth' });
     }
   }, [activeCategory]);
 
   return (
     <nav className="sticky top-0 z-20 border-b border-cyan-950/10 bg-white/90 shadow-[0_8px_25px_rgba(0,40,85,0.08)] backdrop-blur-xl">
-      <div className="no-scrollbar flex snap-x overflow-x-auto px-2 py-3">
+      <div ref={navScrollRef} className="no-scrollbar flex snap-x overflow-x-auto overscroll-x-contain px-2 py-3">
         {categories.map((cat, index) => {
           const isActive = activeCategory === cat.categoria;
           return (

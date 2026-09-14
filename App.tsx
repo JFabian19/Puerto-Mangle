@@ -23,9 +23,27 @@ const App: React.FC = () => {
       const found = current.find(entry => entry.cartId === cartId);
       return found ? current.map(entry => entry.cartId === cartId ? { ...entry, quantity: entry.quantity + 1 } : entry) : [...current, { ...item, cartId, quantity: 1 }];
     });
+    setIsCartOpen(true);
   };
   const updateQuantity = (cartId: string, change: number) => setCart(current => current.flatMap(item => item.cartId === cartId ? (item.quantity + change <= 0 ? [] : [{ ...item, quantity: item.quantity + change }]) : [item]));
   const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+
+  useEffect(() => {
+    if (!isCartOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsCartOpen(false);
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isCartOpen]);
 
   useEffect(() => {
     const loadData = async () => {

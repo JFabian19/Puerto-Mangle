@@ -21,7 +21,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ items, isOpen, onClose, 
   return (
     <>
       <div onClick={onClose} className={`fixed inset-0 z-[60] bg-[#001b3a]/70 backdrop-blur-sm transition-opacity ${isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`} />
-      <aside className={`fixed right-0 top-0 z-[70] flex h-full w-full max-w-md flex-col border-l border-cyan-300/20 bg-[#031b36]/95 p-5 text-white shadow-2xl backdrop-blur-xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`} aria-label="Carrito de compras">
+      <aside className={`fixed right-0 top-0 z-[70] flex h-[100dvh] w-full max-w-md flex-col overscroll-contain border-l border-cyan-300/20 bg-[#031b36]/95 p-5 text-white shadow-2xl backdrop-blur-xl transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'pointer-events-none translate-x-full'}`} aria-label="Carrito de compras" aria-hidden={!isOpen}>
         <div className="mb-6 flex items-center justify-between">
           <div>
             <p className="font-montserrat text-[10px] font-bold uppercase tracking-[0.28em] text-cyan-300">Tu selección</p>
