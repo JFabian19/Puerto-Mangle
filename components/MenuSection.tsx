@@ -13,18 +13,19 @@ interface MenuSectionProps {
 export const MenuSection: React.FC<MenuSectionProps> = ({ category, index, id, onAddToCart }) => {
   return (
     <section id={id} className="relative z-10 mb-14 scroll-mt-36 px-4">
-      <div className="mb-6 flex items-center gap-3">
-        <div className="rounded-xl bg-[#002855] p-2.5 shadow-lg shadow-blue-950/15">
-          <Utensils className="h-5 w-5 text-cyan-300" />
+      <div className="mb-5 flex items-center gap-2.5 sm:gap-3">
+        <div className="rounded-xl bg-[#002855] p-2 shadow-lg shadow-blue-950/15 sm:p-2.5">
+          <Utensils className="h-4 w-4 text-cyan-300 sm:h-5 sm:w-5" />
         </div>
-        <h2 className="flex-grow border-b border-[#002855]/10 pb-2 font-oswald text-2xl font-bold uppercase tracking-wide text-[#002855]">
+        <h2 className="min-w-0 flex-grow border-b border-[#002855]/10 pb-2 font-oswald text-xl font-bold uppercase leading-tight tracking-wide text-[#002855] sm:text-2xl">
           {category.categoria}
         </h2>
+        <span className="rounded-full bg-cyan-100 px-2.5 py-1 font-montserrat text-[9px] font-bold uppercase tracking-wider text-[#006a7a] sm:text-[10px]">
+          {category.items.length} platos
+        </span>
       </div>
 
-
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {category.items.map((item, idx) => (
           <MenuItemCard
             key={`${category.categoria}-${idx}`}

@@ -73,7 +73,7 @@ const App: React.FC = () => {
     if (element) {
       isScrollingRef.current = true;
       // Offset for the sticky header + nav
-      const yOffset = -140;
+      const yOffset = -155;
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
       window.scrollTo({ top: y, behavior: 'smooth' });
@@ -90,7 +90,7 @@ const App: React.FC = () => {
     const handleScroll = () => {
       if (isScrollingRef.current) return;
 
-      const scrollPosition = window.scrollY + 160; // Offset to trigger detection earlier
+      const scrollPosition = window.scrollY + 175; // Offset for the taller category navigation
 
       // Find the current section
       let currentSection = restaurantData.menu[0].categoria;
